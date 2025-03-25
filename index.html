@@ -3,218 +3,476 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My heart profile❤️</title>
-    
-    <!-- External Libraries -->
+    <title>Login | School ID Card System</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
-    
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css" />
-
-    <!-- Custom Styles -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@400;600&display=swap');
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(120deg, #ffafbd, #ffc3a0);
-            text-align: center;
-            overflow-x: hidden;
-            height:100hv;
-            animation: fadeIn 2s ease-in-out;
-            position: relative;
-            color: #333; /* Slightly darker text for readability */
+        .form-error {
+            color: #EF4444;
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
         }
-
-        header {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3rem;
-            animation: glow 1.5s infinite alternate;
-            margin-bottom: 20px;
+        .header-logo {
+            width: 64px;
+            height: 64px;
+            background-color: #2563EB;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
         }
-
-        .hidden { display: none; }
-        .typing-text { 
-            font-size: 1.2rem; 
-            white-space: pre-wrap; 
-            overflow: hidden; 
-            border-right: 3px solid pink; 
-        }
-
-        @keyframes glow {
-            from { text-shadow: 0 0 10px #ff4081; }
-            to { text-shadow: 0 0 20px #ff80ab; }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* Floating Hearts */
-        .heart {
-            position: absolute;
-            bottom: 0;
-            font-size: 24px;
-            opacity: 0.8;
-            animation: float 5s linear infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0) scale(1); opacity: 1; }
-            100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
-        }
-
-        /* Slideshow Styling */
-        .swiper {
-            width: 90%;
-            height: 700px;
-            margin-top: 20px;
-            border-radius: 15px;
+        /* Mobile menu styles */
+        .mobile-menu {
+            max-height: 0;
             overflow: hidden;
-            box-shadow: 0px 5px 20px rgba(255, 105, 180, 0.5);
-            margin-bottom: 30px; /* Added spacing for better separation */
+            transition: max-height 0.3s ease-out;
         }
-
-        .swiper-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 15px;
+        .mobile-menu.active {
+            max-height: 300px;
+            transition: max-height 0.5s ease-in;
         }
-
-        /* Love Letter Section */
-        .love-letter {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            margin: 20px auto;
-            width: 80%;
-            max-width: 500px;
-            border-radius: 10px;
-            box-shadow: 0px 5px 15px rgba(255, 105, 180, 0.3);
-            color: #ff4081;
-            font-size: 1.2rem;
-            font-family: 'Dancing Script', cursive;
+        /* Improved responsive styles */
+        .nav-container {
+            display: flex;
+            align-items: center;
         }
-
-        /* Button Style */
-        .btn-special {
-            background: #ff4081;
-            color: white;
-            padding: 12px 25px;
-            font-size: 1.1rem;
-            border-radius: 12px;
-            margin-top: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
+        .mobile-buttons {
+            display: flex;
+            align-items: center;
         }
-
-        .btn-special:hover {
-            background: #ff80ab;
-        }
-
-        .queen {
-        }
-
-        /* Footer Styling */
-        footer {
-            background-color: #ff4081;
-            color: white;
-            padding: 20px 0;
-            font-size: 1rem;
-            margin-top: 30px;
-        }
-
-        footer p {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-        }
-
-    </style>
-</head>
-<body class="bg-pink-100 text-white">
-
-    <header class="p-6 text-pink-500 font-bold">For My Love, Latifa ❤️</header>
-
-    <!-- Romantic Image Slider -->
-    <section class="mt-6">
-        <h2 class="text-2xl font-semibold text-pink-700">Our Beautiful Moments Together 💕</h2>
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="IMG_1.jpg" alt="Memory 1"></div>
-                <div class="swiper-slide"><img src="IMG_2.jpeg" alt="Memory 2"></div>
-                <div class="swiper-slide"><img src="IMG_3.jpeg" alt="Memory 3"></div>
-                <div class="swiper-slide"><img src="IMG_5.jpg" alt="Memory 4"></div>
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
-    </section>
-
-    <!-- Love Letter Typing Animation -->
-    <section class="mt-10 p-6">
-        <h2 class="text-2xl font-semibold text-pink-700">A Special Love Letter 💌</h2>
-        <div class="love-letter">
-            <p id="typing-text"></p>
-        </div>
-    </section>
-
-    <section class="queen">
-        <!-- Surprise Message Button -->
-        <button class="btn-special" onclick="showMessage()">Click for a Surprise Message 💖</button>
-        <p id="surprise-message" class="hidden text-xl text-pink-700 mt-4">I love you forever, my queen! 👑❤️</p>
-    </section>
-
-    <!-- Floating Hearts Effect -->
-    <script>
-        setInterval(() => {
-            let heart = document.createElement("div");
-            heart.innerHTML = "❤️";
-            heart.classList.add("heart");
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.animationDuration = Math.random() * 2 + 3 + "s";
-            document.body.appendChild(heart);
-            setTimeout(() => { heart.remove(); }, 5000);
-        }, 700);
-
-        // Typing Effect for Love Letter
-        const letter = "My dearest Latifa,\n\nYou are my sunshine, my happiness, and my forever love. ❤️";
-        let i = 0;
-        function typeLetter() {
-            if (i < letter.length) {
-                document.getElementById("typing-text").innerHTML += letter.charAt(i);
-                i++;
-                setTimeout(typeLetter, 50);
+        @media (max-width: 768px) {
+            .mobile-buttons {
+                gap: 16px;
+                margin-left: auto;
             }
         }
-        typeLetter();
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-blue-100 min-h-screen flex flex-col">
+    <!-- Header with gradient background -->
+    <header class="bg-gradient-to-r from-blue-600 to-indigo-700 shadow-md w-full py-4 relative">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-10 h-10 bg-white bg-opacity-20 backdrop-blur-sm rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-id-card text-white"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-white" data-lang-key="systemName">Mfumo wa Vitambulisho vya Shule</h1>
+                    <p class="text-xs text-blue-100" data-lang-key="systemTagline">Utambulisho rahisi na salama</p>
+                </div>
+            </div>
+            
+            <!-- Navigation and right controls -->
+            <div class="nav-container">
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-6 mr-6">
+                    <a href="index.html" class="text-blue-100 hover:text-white transition-colors" data-lang-key="home">Nyumbani</a>
+                    <a href="about.html" class="text-blue-100 hover:text-white transition-colors" data-lang-key="about">Kuhusu</a>
+                    <a href="services.html" class="text-blue-100 hover:text-white transition-colors" data-lang-key="services">Huduma</a>
+                    <a href="contact.html" class="text-blue-100 hover:text-white transition-colors" data-lang-key="contact">Wasiliana</a>
+                    <a href="login.html" class="font-medium text-white bg-blue-500 bg-opacity-30 px-4 py-1 rounded-full hover:bg-opacity-50 transition-all" data-lang-key="login">Ingia</a>
+                </nav>
+                
+                <!-- Mobile controls: Language switcher and menu button with space between -->
+                <div class="mobile-buttons">
+                    <!-- Language Switcher -->
+                    <div>
+                        <button id="langSwitch" class="bg-white px-3 py-1 rounded-full shadow-sm text-sm flex items-center">
+                            <span id="currentLang">Swahili</span>
+                            <i class="fas fa-globe ml-2 text-blue-500"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" class="md:hidden text-white focus:outline-none">
+                        <i id="menuIcon" class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="mobile-menu md:hidden bg-indigo-700 w-full">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="index.html" class="text-blue-100 hover:text-white transition-colors py-2 border-b border-blue-500 border-opacity-30" data-lang-key="home">Nyumbani</a>
+                <a href="about.html" class="text-blue-100 hover:text-white transition-colors py-2 border-b border-blue-500 border-opacity-30" data-lang-key="about">Kuhusu</a>
+                <a href="services.html" class="text-blue-100 hover:text-white transition-colors py-2 border-b border-blue-500 border-opacity-30" data-lang-key="services">Huduma</a>
+                <a href="contact.html" class="text-blue-100 hover:text-white transition-colors py-2 border-b border-blue-500 border-opacity-30" data-lang-key="contact">Wasiliana</a>
+                <a href="login.html" class="text-white py-2 font-medium" data-lang-key="login">Ingia</a>
+            </div>
+        </div>
+    </header>
 
-        // Swiper Initialization (Image Slider)
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 1,
-            spaceBetween: 10,
-            loop: true,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            autoplay: {
-                delay: 3000,  // Set the delay for each slide transition (in milliseconds)
-                disableOnInteraction: false,  // Continue autoplay even after user interacts
-            },
-        });
+    <!-- Main Content -->
+    <main class="flex-grow flex items-center justify-center p-4">
+        <div class="bg-white p-8 rounded-lg shadow-xl w-96 max-w-full">
+            <!-- Logo -->
+            <div class="header-logo mb-4">
+                <i class="fas fa-id-card text-white text-2xl"></i>
+            </div>
+                
+            <h2 class="text-2xl font-bold text-center text-gray-700 mb-2" data-lang-key="login">Ingia</h2>
+            <p class="text-center text-gray-500 mb-6" data-lang-key="welcome">Karibu kwenye mfumo wa vitambulisho vya shule</p>
+                
+            <form id="loginForm" action="#" method="POST" class="space-y-4">
+                <div>
+                    <label class="block text-gray-600 text-sm font-medium mb-1" data-lang-key="email">Barua pepe</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-envelope text-gray-400"></i>
+                        </div>
+                        <input id="email" type="email" class="w-full pl-10 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <span class="form-error hidden" id="emailError" data-lang-key="emailError">Tafadhali ingiza barua pepe halali</span>
+                </div>
+                    
+                <div>
+                    <label class="block text-gray-600 text-sm font-medium mb-1" data-lang-key="password">Nenosiri</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-lock text-gray-400"></i>
+                        </div>
+                        <input id="password" type="password" class="w-full pl-10 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <button type="button" id="togglePassword" class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                            <i class="fas fa-eye text-gray-400"></i>
+                        </button>
+                    </div>
+                    <span class="form-error hidden" id="passwordError" data-lang-key="passwordError">Nenosiri linahitajika</span>
+                </div>
+                    
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                        <input id="remember" type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                        <label for="remember" class="ml-2 block text-sm text-gray-600" data-lang-key="rememberMe">Nikumbuke</label>
+                    </div>
+                    <a href="forgot-password.html" class="text-blue-500 text-sm hover:underline" data-lang-key="forgotPassword">Umesahau Nenosiri?</a>
+                </div>
+                    
+                <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition-colors flex items-center justify-center">
+                    <span data-lang-key="loginButton">Ingia</span>
+                    <i class="fas fa-sign-in-alt ml-2"></i>
+                </button>
+                    
+                <div class="text-center mt-4">
+                    <span class="text-gray-600 text-sm" data-lang-key="noAccount">Huna akaunti?</span>
+                    <a href="signup.html" class="text-blue-500 text-sm ml-1 hover:underline" data-lang-key="signup">Jisajili</a>
+                </div>
+            </form>
+        </div>
+    </main>
 
-        // Surprise Message Function
-        function showMessage() {
-            document.getElementById("surprise-message").classList.toggle("hidden");
-        }
-    </script>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-3" data-lang-key="aboutSystem">Kuhusu Mfumo</h3>
+                    <p class="text-gray-300 text-sm" data-lang-key="systemDescription">
+                        Mfumo wa Vitambulisho vya Shule unasaidia shule kutengeneza, kusimamia, na kuthibitisha vitambulisho vya wanafunzi na wafanyakazi kwa urahisi.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-3" data-lang-key="quickLinks">Viungo vya Haraka</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="features.html" class="text-gray-300 hover:text-white transition-colors" data-lang-key="features">Vipengele</a></li>
+                        <li><a href="pricing.html" class="text-gray-300 hover:text-white transition-colors" data-lang-key="pricing">Bei</a></li>
+                        <li><a href="faqs.html" class="text-gray-300 hover:text-white transition-colors" data-lang-key="faqs">Maswali</a></li>
+                        <li><a href="support.html" class="text-gray-300 hover:text-white transition-colors" data-lang-key="support">Msaada</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-3" data-lang-key="contactUs">Wasiliana Nasi</h3>
+                    <div class="space-y-2 text-sm">
+                        <p class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-blue-400"></i>
+                            <span>info.natlabs@gmail.com</span>
+                        </p>
+                        <p class="flex items-center">
+                            <i class="fas fa-phone mr-2 text-blue-400"></i>
+                            <span>+255 657 260 703</span>
+                        </p>
+                        <p class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2 text-blue-400"></i>
+                            <span data-lang-key="address">Dar es Salaam, Tanzania</span>
+                        </p>
+                    </div>
+                    <div class="mt-4 flex space-x-3">
+                        <a href="#" class="text-blue-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-blue-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-blue-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/255657260703" class="text-blue-400 hover:text-white transition-colors">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                       <a href="mailto:info.natlabs@gmail.com" class="text-blue-400 hover:text-white transition-colors">
+    <i class="fas fa-envelope"></i>
+</a>
 
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2025 Mr Alchemyʼs Love to Latifa ❤️ | All Rights Reserved</p>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-6 pt-6 text-center text-sm text-gray-400">
+                <p data-lang-key="copyright">© 2025 Mfumo wa Vitambulisho vya Shule. Haki zote zimehifadhiwa.</p>
+            </div>
+        </div>
     </footer>
 
+<script>
+    // Form validation
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        let isValid = true;
+            
+        // Email validation
+        const email = document.getElementById('email');
+        const emailError = document.getElementById('emailError');
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+        if (!email.value || !emailRegex.test(email.value)) {
+            emailError.classList.remove('hidden');
+            email.classList.add('border-red-500');
+            isValid = false;
+        } else {
+            emailError.classList.add('hidden');
+            email.classList.remove('border-red-500');
+        }
+            
+        // Password validation
+        const password = document.getElementById('password');
+        const passwordError = document.getElementById('passwordError');
+            
+        if (!password.value) {
+            passwordError.classList.remove('hidden');
+            password.classList.add('border-red-500');
+            isValid = false;
+        } else {
+            passwordError.classList.add('hidden');
+            password.classList.remove('border-red-500');
+        }
+            
+        if (isValid) {
+            // Save remember me preference
+            if (document.getElementById('remember').checked) {
+                localStorage.setItem('rememberedEmail', email.value);
+            } else {
+                localStorage.removeItem('rememberedEmail');
+            }
+                
+            // If validation passes, you would normally submit the form
+            console.log('Form submitted successfully');
+            // this.submit(); // Uncomment to actually submit the form
+        }
+    });
+        
+    // Toggle password visibility
+    document.getElementById('togglePassword').addEventListener('click', function() {
+        const passwordInput = document.getElementById('password');
+        const icon = this.querySelector('i');
+            
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        }
+    });
+        
+    // Check for remembered email
+    window.addEventListener('load', function() {
+        const rememberedEmail = localStorage.getItem('rememberedEmail');
+        if (rememberedEmail) {
+            document.getElementById('email').value = rememberedEmail;
+            document.getElementById('remember').checked = true;
+        }
+    });
+        
+    // Language switching functionality
+    const langSwitch = document.getElementById('langSwitch');
+    const currentLang = document.getElementById('currentLang');
+    let isEnglish = false;
+        
+    // Language dictionary - expanded for new elements
+    const translations = {
+        login: {
+            sw: "Ingia",
+            en: "Login"
+        },
+        welcome: {
+            sw: "Karibu kwenye mfumo wa vitambulisho vya shule",
+            en: "Welcome to the School ID Card System"
+        },
+        email: {
+            sw: "Barua pepe",
+            en: "Email"
+        },
+        password: {
+            sw: "Nenosiri",
+            en: "Password"
+        },
+        rememberMe: {
+            sw: "Nikumbuke",
+            en: "Remember me"
+        },
+        forgotPassword: {
+            sw: "Umesahau Nenosiri?",
+            en: "Forgot Password?"
+        },
+        loginButton: {
+            sw: "Ingia",
+            en: "Login"
+        },
+        noAccount: {
+            sw: "Huna akaunti?",
+            en: "Don't have an account?"
+        },
+        signup: {
+            sw: "Jisajili",
+            en: "Sign up"
+        },
+        emailError: {
+            sw: "Tafadhali ingiza barua pepe halali",
+            en: "Please enter a valid email"
+        },
+        passwordError: {
+            sw: "Nenosiri linahitajika",
+            en: "Password is required"
+        },
+        // New translations for header and footer
+        systemName: {
+            sw: "Mfumo wa Vitambulisho vya Shule",
+            en: "School ID Card System"
+        },
+        systemTagline: {
+            sw: "Utambulisho rahisi na salama",
+            en: "Easy and secure identification"
+        },
+        home: {
+            sw: "Nyumbani",
+            en: "Home"
+        },
+        about: {
+            sw: "Kuhusu",
+            en: "About"
+        },
+        services: {
+            sw: "Huduma",
+            en: "Services"
+        },
+        contact: {
+            sw: "Wasiliana",
+            en: "Contact"
+        },
+        aboutSystem: {
+            sw: "Kuhusu Mfumo",
+            en: "About the System"
+        },
+        systemDescription: {
+            sw: "Mfumo wa Vitambulisho vya Shule unasaidia shule kutengeneza, kusimamia, na kuthibitisha vitambulisho vya wanafunzi na wafanyakazi kwa urahisi.",
+            en: "The School ID Card System helps schools create, manage, and verify student and staff ID cards easily."
+        },
+        quickLinks: {
+            sw: "Viungo vya Haraka",
+            en: "Quick Links"
+        },
+        features: {
+            sw: "Vipengele",
+            en: "Features"
+        },
+        pricing: {
+            sw: "Bei",
+            en: "Pricing"
+        },
+        faqs: {
+            sw: "Maswali",
+            en: "FAQs"
+        },
+        support: {
+            sw: "Msaada",
+            en: "Support"
+        },
+        contactUs: {
+            sw: "Wasiliana Nasi",
+            en: "Contact Us"
+        },
+        address: {
+            sw: "Dar es Salaam, Tanzania",
+            en: "Dar es Salaam, Tanzania"
+        },
+        copyright: {
+            sw: "© 2025 Mfumo wa Vitambulisho vya Shule. Haki zote zimehifadhiwa.",
+            en: "© 2025 School ID Card System. All rights reserved."
+        }
+    };
+        
+    // Toggle between languages
+    langSwitch.addEventListener('click', function() {
+        isEnglish = !isEnglish;
+        const lang = isEnglish ? 'en' : 'sw';
+        document.documentElement.lang = lang;
+        currentLang.textContent = isEnglish ? 'English' : 'Swahili';
+            
+        // Update all text elements with language keys
+        document.querySelectorAll('[data-lang-key]').forEach(element => {
+            const key = element.getAttribute('data-lang-key');
+            if (translations[key]) {
+                element.textContent = translations[key][lang];
+            }
+        });
+    });
+
+    // Mobile menu toggle functionality
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    let menuOpen = false;
+
+    mobileMenuBtn.addEventListener('click', function() {
+        menuOpen = !menuOpen;
+            
+        // Toggle menu visibility
+        if (menuOpen) {
+            mobileMenu.classList.add('active');
+            menuIcon.classList.remove('fa-bars');
+            menuIcon.classList.add('fa-times');
+        } else {
+            mobileMenu.classList.remove('active');
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+        }
+    });
+
+    // Close menu when clicking elsewhere
+    document.addEventListener('click', function(event) {
+        const isClickInsideMenu = mobileMenu.contains(event.target);
+        const isClickOnButton = mobileMenuBtn.contains(event.target);
+            
+        if (menuOpen && !isClickInsideMenu && !isClickOnButton) {
+            menuOpen = false;
+            mobileMenu.classList.remove('active');
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+        }
+    });
+
+    // Close mobile menu on window resize (if screen becomes large enough for desktop menu)
+    window.addEventListener('resize', function() {
+        if (window.innerWidth >= 768 && menuOpen) { // 768px is the md breakpoint in Tailwind
+            menuOpen = false;
+            mobileMenu.classList.remove('active');
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+        }
+    });
+</script>
 </body>
 </html>
